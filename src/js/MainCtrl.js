@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/test',
             templateUrl: 'src/assets/test.html'
         })
-        .state('home.list', {
+        .state('list', {
             url: '/list/:id',
             // url: '/project/detailed?:idx',
             // templateUrl: 'src/assets/task.group.detailed.html'

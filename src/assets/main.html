@@ -10,8 +10,8 @@
     </form>
     </div>
     <ul class="list-group" ng-hide="main.enableEdit">
-      <a ui-sref="home" ui-sref-active="active">Hello</a>
-    <a data-ui-sref="home.test" ui-sref-active="active">About</a>
+<!--       <a ui-sref="home" ui-sref-active="active">Hello</a>
+    <a data-ui-sref="home.test" ui-sref-active="active">About</a> -->
     <!-- <a ui-sref="home.third" ui-sref-active="active">third</a> -->
     <h1>mmmm</h1>
     <ui-view></ui-view>
@@ -19,7 +19,7 @@
         <!-- <a><h4 ng-click="main.readVariable(item._id, item.name);">{{item.name}}</h4></a> -->
         <!-- <a><h4 ui-sref="home.list({ id: item._id })">{{item.name}}</h4></a> -->
 
-        <a ui-sref="home.list({ id: item._id })"><h4>{{item.name}}</h4></a>
+        <a ui-sref="list({ id: item._id })"><h4>{{item.name}}</h4></a>
          <!-- data-ui-sref="find-project-detailed({ idx: project.url})" -->
 
          <!-- id: item. is important. i think these are correct -->
