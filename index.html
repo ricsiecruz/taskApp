@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="taskApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Bootstrap Demo</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+</head>
+<body ng-controller='MainCtrl'>
+  
+<div class='container'>
+    <div class='row' style='margin-top:100px'>
+      <button class='btn btn-primary' ng-click="addToLevel(0, 20); calcTotal();">+20 Points Lvl 1</button>
+      <br>
+
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <td>Level</td>
+            <td>Points</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='data in gameData'>
+            <td>{{ data.level }}</td>
+            <td>{{ data.points }}</td>
+          </tr>
+          <tr>
+            <td>Total Points</td>
+            <td>{{total}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+  <!-- <script src="angular.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- <script src="angular.min.js"></script> -->
+  <script src="src/js/MainCtrl.js"></script>
+</body>
+</html>
