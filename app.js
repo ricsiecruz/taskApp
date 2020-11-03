@@ -3,7 +3,7 @@ var express    = require("express");
 var morgan     = require("morgan");
 var app        = express();
 
-var port = process.env.PORT || 3002;
+var port = process.env.PORT || 4200;
 
 app.use(morgan("dev"));
 app.use(express.static("./"));

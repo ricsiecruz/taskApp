@@ -1,48 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="taskApp">
+
 <head>
-  <meta charset="utf-8">
-  <title>Angular Bootstrap Demo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
-</head>
-<body ng-controller='MainCtrl'>
-  
-<div class='container'>
-    <div class='row' style='margin-top:100px'>
-      <button class='btn btn-primary' ng-click="addToLevel(0, 20); calcTotal();">+20 Points Lvl 1</button>
-      <br>
-
-      <table class='table table-hover'>
-        <thead>
-          <tr>
-            <td>Level</td>
-            <td>Points</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat='data in gameData'>
-            <td>{{ data.level }}</td>
-            <td>{{ data.points }}</td>
-          </tr>
-          <tr>
-            <td>Total Points</td>
-            <td>{{total}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-
-    </div>
-  </div>
-  <!-- <script src="angular.min.js"></script> -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- <script src="angular.min.js"></script> -->
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.8/angular.js" data-semver="1.4.8"></script>
+  <script data-require="lodash.js@*" data-semver="3.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
+  <script src="app.js"></script>
   <script src="src/js/MainCtrl.js"></script>
+</head>
+
+<body ng-controller="MainCtrl as main">
+  <div class="container">
+    <div class="form-group" ng-if="!main.enableEdit">
+      <h2>What to do</h2>
+      <form ng-submit="main.submit(main.name)">
+      <div class="input-group">
+      <input type="text" class="form-control" ng-model="main.name" placeholder="Search for..." required>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"  ng-click="">Add</button>
+      </span>
+    </div>
+    </form>
+    </div>
+    <ul class="list-group" ng-hide="main.enableEdit">
+      <li class="list-group-item" ng-repeat="item in main.data">
+        <a><h4>{{item.name}}</h4></a>
+        <button type="button" class="btn btn-primary btn-xs" ng-click="main.editClick(item.name,item._id)">edit</button>
+        <button type="button" class="btn btn-danger btn-xs" ng-click="main.remove(item._id)">delete</button>
+
+      </li>
+    </ul>
+      <div class="form-group" ng-if="main.enableEdit">
+          <h1>Edit Data</h1>
+          <input class="form-control" type="text" ng-model="main.name">
+          <input class="btn btn-primary" type="button" value="update" ng-click="main.update(main.eid,main.name)">
+        </div>
+        
+  </div>
 </body>
+
 </html>
