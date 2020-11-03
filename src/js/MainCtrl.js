@@ -1,9 +1,9 @@
 'use strict'
 var app = angular.module('taskApp', []);
 app.factory('localdb', localdb);
-app.controller('MainCtrl',MainCtrl); 
+app.controller('mainCtrl',mainCtrl); 
 
-function MainCtrl($scope, localdb) {
+function mainCtrl($scope, localdb) {
   var vm = this;
   vm.name = '';
   vm.data = localdb.select('sample');
@@ -14,6 +14,13 @@ function MainCtrl($scope, localdb) {
   vm.remove = remove;
   vm.update = updateName;
   vm.editClick=editClik;
+  vm.readVariable=readVariable;
+
+  function readVariable(id, name){
+        vm.eid = id
+        vm.name = name;
+        console.log(id, name);  //it works!
+    }
 
   function submit(name) {
     console.log('Submit is called');
