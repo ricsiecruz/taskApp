@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css" />
   <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.8/angular.js" data-semver="1.4.8"></script>
   <script data-require="lodash.js@*" data-semver="3.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
-  <script src="server.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="src/js/app.js"></script>
   <script src="src/js/mainCtrl.js"></script>
 </head>
@@ -30,6 +30,10 @@
     </form>
     </div>
     <ul class="list-group" ng-hide="main.enableEdit">
+      <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+    <h1>mmmm</h1>
+    <ui-view></ui-view>
       <li class="list-group-item" ng-repeat="item in main.data" id="{{ item._id }}"> <!-- id="{{ item.name, item._id }}" -->
         <a><h4 ng-click="main.readVariable(item._id, item.name);">{{item.name}}</h4></a> <!-- onclick="readVariable(this);" -->
         <!-- <a><h4>{{item.name}}</h4></a> -->

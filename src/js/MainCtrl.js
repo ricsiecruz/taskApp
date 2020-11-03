@@ -1,5 +1,25 @@
+// var app = angular.module('taskApp', ['ui.router']);
+var app = angular.module('taskApp', ['ui.router']);
+app.config(function($stateProvider) {
+  console.log('er')
+  var helloState = {
+    name: 'hello',
+    url: '/hello',
+    template: '<h3>hello world!</h3>'
+  }
+  
+  var aboutState = {
+    name: 'about',
+    url: '/about',
+    template: '<h3>Its the UI-Router hello world app!</h3>'
+  }
+  
+  $stateProvider.state(helloState);
+  $stateProvider.state(aboutState);
+});
+
 'use strict'
-var app = angular.module('taskApp', []);
+// var app = angular.module('taskApp', ['ui.router']);
 app.factory('localdb', localdb);
 app.controller('mainCtrl',mainCtrl); 
 
