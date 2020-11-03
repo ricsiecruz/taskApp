@@ -1,21 +1,93 @@
 // var app = angular.module('taskApp', ['ui.router']);
 var app = angular.module('taskApp', ['ui.router']);
-app.config(function($stateProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
   console.log('er')
-  var helloState = {
-    name: 'hello',
-    url: '/hello',
-    template: '<h3>hello world!</h3>'
-  }
-  
-  var aboutState = {
-    name: 'about',
-    url: '/about',
-    template: '<h3>Its the UI-Router hello world app!</h3>'
-  }
-  
-  $stateProvider.state(helloState);
-  $stateProvider.state(aboutState);
+  $urlRouterProvider.otherwise('/home');
+    
+    $stateProvider
+        
+        // HOME STATES AND NESTED VIEWS ========================================
+        .state('home', {
+            url: '/home',
+            templateUrl: 'index.html'
+        })
+        .state('home.list', {
+            url: '/list',
+            templateUrl: 'assets/task.group.detailed.html'
+        })
+        .state('home.third', {
+            url: '/third',
+            templateUrl: 'src/assets/task.group.detailed.html'
+        })
+
+
+  // App.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$uibTooltipProvider', '$sceDelegateProvider',
+  //   function ($stateProvider, $urlRouterProvider, $httpProvider, $uibTooltipProvider, $sceDelegateProvider) {
+  //       // Tooltips and Popovers configuration
+  //       $httpProvider.interceptors.push('interceptor');
+  //       $uibTooltipProvider.options({
+  //           appendToBody: true
+  //       });
+  //       // Router configration
+  //       $urlRouterProvider.otherwise('/main');
+  //       $urlRouterProvider.when('/settings', '/settings/basic-profile');
+  //       $urlRouterProvider.when('/admin/', '/admin/dashboard');
+  //       $urlRouterProvider.when('/admin', '/admin/dashboard');
+  //       $sceDelegateProvider.resourceUrlWhitelist([
+  //           // Allow same origin resource loads.
+  //           'self',
+  //           // Allow loading from our assets domain.  Notice the difference between * and **.
+  //           'https://countryapi.gear.host/**'
+  //       ]);
+
+  //       $stateProvider
+  //           .state('main', {
+  //               url: '/main',
+  //               views: {
+  //                   'header': {
+  //                       templateUrl: 'assets/views/header.html',
+  //                       controller: 'MainHeaderCtrl'
+  //                   },
+  //                   'main': {
+  //                       templateUrl: 'assets/views/main.html',
+  //                       controller: 'MainCtrl'
+  //                   },
+  //                   'footer': {
+  //                       templateUrl: 'assets/views/footer.html'
+  //                   }
+  //               }, 
+  //                data:{
+  //                   requiresUserLogin: false
+  //               },
+  //           })
+  //           .state('main.main', {
+  //               url: '/main',
+  //               views: {
+  //                   'main': {
+  //                       templateUrl: 'assets/views/main.html'
+  //                   }
+  //               }
+  //           })
+  //           .state('signup', {
+  //               url: '/signup',
+  //               views:
+  //               {
+  //                   'header': {
+  //                       templateUrl: 'assets/views/header.html',
+  //                       controller: 'MainHeaderCtrl'
+  //                   },
+  //                   'main': {
+  //                       templateUrl: 'assets/views/signup.html',
+  //                       controller: 'signUpCtrl'
+  //                   },
+  //                   'footer': {
+  //                       templateUrl: 'assets/views/footer.html'
+  //                   }
+  //               },
+  //               data:{
+  //                   mustbeLoggedOut: true
+  //               }
+  //           })
 });
 
 'use strict'
