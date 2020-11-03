@@ -11,83 +11,40 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: 'src/assets/main.html'
         })
+        .state('home.test', {
+            url: '/test',
+            templateUrl: 'src/assets/test.html'
+        })
         .state('home.list', {
-            url: '/list',
-            templateUrl: 'assets/task.group.detailed.html'
+            url: '/list/:id',
+            // url: '/project/detailed?:idx',
+            // templateUrl: 'src/assets/task.group.detailed.html'
+templateUrl: 'src/assets/task.group.detailed.html',
+// controller:'taskDetailedCtrl',
+resolve: {
+
+
+
+        function($stateParams){
+  // console.log('ss')
+  console.log($stateParams.id)
+  // console.log(select)
+  // $scope.toDisplay = inventoryItem;
+
+                  // console.log($scope.main.data)
+            // return ({id: $stateParams.id});
+  // console.log($stateParams.id)$scope.state = $state.current
+  //                 $scope.item = $scope.main.data[$stateParams.id];
+  //                 console.log($scope.main.data)
+  //                 console.log($scope.main.data._id)
+    }
+}
+// controller: 'taskDetailedCtrl'
+// controller: function($scope, $stateParams) {
+//         $scope.paramId = $stateParams.id;
+//       }
         })
-        .state('home.third', {
-            url: '/third',
-            templateUrl: 'src/assets/task.group.detailed.html'
-        })
-
-
-  // App.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$uibTooltipProvider', '$sceDelegateProvider',
-  //   function ($stateProvider, $urlRouterProvider, $httpProvider, $uibTooltipProvider, $sceDelegateProvider) {
-  //       // Tooltips and Popovers configuration
-  //       $httpProvider.interceptors.push('interceptor');
-  //       $uibTooltipProvider.options({
-  //           appendToBody: true
-  //       });
-  //       // Router configration
-  //       $urlRouterProvider.otherwise('/main');
-  //       $urlRouterProvider.when('/settings', '/settings/basic-profile');
-  //       $urlRouterProvider.when('/admin/', '/admin/dashboard');
-  //       $urlRouterProvider.when('/admin', '/admin/dashboard');
-  //       $sceDelegateProvider.resourceUrlWhitelist([
-  //           // Allow same origin resource loads.
-  //           'self',
-  //           // Allow loading from our assets domain.  Notice the difference between * and **.
-  //           'https://countryapi.gear.host/**'
-  //       ]);
-
-  //       $stateProvider
-  //           .state('main', {
-  //               url: '/main',
-  //               views: {
-  //                   'header': {
-  //                       templateUrl: 'assets/views/header.html',
-  //                       controller: 'MainHeaderCtrl'
-  //                   },
-  //                   'main': {
-  //                       templateUrl: 'assets/views/main.html',
-  //                       controller: 'MainCtrl'
-  //                   },
-  //                   'footer': {
-  //                       templateUrl: 'assets/views/footer.html'
-  //                   }
-  //               }, 
-  //                data:{
-  //                   requiresUserLogin: false
-  //               },
-  //           })
-  //           .state('main.main', {
-  //               url: '/main',
-  //               views: {
-  //                   'main': {
-  //                       templateUrl: 'assets/views/main.html'
-  //                   }
-  //               }
-  //           })
-  //           .state('signup', {
-  //               url: '/signup',
-  //               views:
-  //               {
-  //                   'header': {
-  //                       templateUrl: 'assets/views/header.html',
-  //                       controller: 'MainHeaderCtrl'
-  //                   },
-  //                   'main': {
-  //                       templateUrl: 'assets/views/signup.html',
-  //                       controller: 'signUpCtrl'
-  //                   },
-  //                   'footer': {
-  //                       templateUrl: 'assets/views/footer.html'
-  //                   }
-  //               },
-  //               data:{
-  //                   mustbeLoggedOut: true
-  //               }
-  //           })
+        
 });
 
 'use strict'

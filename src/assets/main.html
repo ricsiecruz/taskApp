@@ -11,13 +11,18 @@
     </div>
     <ul class="list-group" ng-hide="main.enableEdit">
       <a ui-sref="home" ui-sref-active="active">Hello</a>
-    <a ui-sref="home.ist" ui-sref-active="active">About</a>
-    <a ui-sref="home.third" ui-sref-active="active">third</a>
+    <a data-ui-sref="home.test" ui-sref-active="active">About</a>
+    <!-- <a ui-sref="home.third" ui-sref-active="active">third</a> -->
     <h1>mmmm</h1>
     <ui-view></ui-view>
-      <li class="list-group-item" ng-repeat="item in main.data" id="{{ item._id }}"> <!-- id="{{ item.name, item._id }}" -->
-        <a><h4 ng-click="main.readVariable(item._id, item.name);">{{item.name}}</h4></a> <!-- onclick="readVariable(this);" -->
-        <!-- <a><h4>{{item.name}}</h4></a> -->
+      <li class="list-group-item" ng-repeat="item in main.data" id="{{ item._id }}"> 
+        <!-- <a><h4 ng-click="main.readVariable(item._id, item.name);">{{item.name}}</h4></a> -->
+        <!-- <a><h4 ui-sref="home.list({ id: item._id })">{{item.name}}</h4></a> -->
+
+        <a ui-sref="home.list({ id: item._id })"><h4>{{item.name}}</h4></a>
+         <!-- data-ui-sref="find-project-detailed({ idx: project.url})" -->
+
+         <!-- id: item. is important. i think these are correct -->
         <button type="button" class="btn btn-primary btn-xs" ng-click="main.editClick(item.name,item._id)">edit</button>
         <button type="button" class="btn btn-danger btn-xs" ng-click="main.remove(item._id)">delete</button>
 
