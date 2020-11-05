@@ -1,3 +1,5 @@
+To run, please open terminal, go to project folder, and run node server.js then see browser at localhost://4200
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
